@@ -5,11 +5,11 @@ import TodoItem from './TodoItem';
 interface TodoListProps {
   todos: Todo[];
   toggleTodo: (id: number) => void;
-  buttonText: string;
+  deleteTodo: (id: number) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = React.memo(
-  ({ todos, toggleTodo, buttonText }) => {
+  ({ todos, toggleTodo, deleteTodo }) => {
     return (
       <ul>
         {todos.map((todo) => (
@@ -17,7 +17,7 @@ const TodoList: React.FC<TodoListProps> = React.memo(
             key={todo.id}
             todo={todo}
             toggleTodo={toggleTodo}
-            buttonText={buttonText}
+            deleteTodo={deleteTodo}
           />
         ))}
       </ul>
