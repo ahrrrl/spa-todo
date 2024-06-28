@@ -1,0 +1,26 @@
+.todo-list {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 8px;
+  padding: 20px;
+  list-style: none;
+  height: 240px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+}

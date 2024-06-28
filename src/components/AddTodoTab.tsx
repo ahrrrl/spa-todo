@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, useCallback } from 'react';
+import './AddTodoTab.scss';
 
 interface AddTodoTabProps {
   addTodo: (title: string, context: string) => void;
@@ -19,7 +20,7 @@ const AddTodoTab: React.FC<AddTodoTabProps> = React.memo(({ addTodo }) => {
   );
 
   return (
-    <div>
+    <div className='add-todo-tab'>
       <form onSubmit={handleAddTodo}>
         <input
           value={title}

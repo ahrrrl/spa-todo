@@ -46,14 +46,14 @@ const TodoPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <AddTodoTab addTodo={addTodo} />
       <TodoListTab
         todos={todos}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
       />
-    </div>
+    </>
   );
 };
 

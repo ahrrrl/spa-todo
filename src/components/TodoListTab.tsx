@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './TodoList';
 import { Todo } from '../types';
+import './TodoListTab.scss';
 
 interface TodoListTabProps {
   todos: Todo[];
@@ -14,7 +15,7 @@ const TodoListTab: React.FC<TodoListTabProps> = React.memo(
     const doneTodos = todos.filter((todo) => todo.isDone);
 
     return (
-      <div>
+      <div className='todo-list-tab'>
         <h2>시도할 일</h2>
         <TodoList
           todos={tryTodos}

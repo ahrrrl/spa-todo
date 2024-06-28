@@ -1,6 +1,7 @@
 import React from 'react';
 import { Todo } from '../types';
 import TodoItem from './TodoItem';
+import './TodoList.scss';
 
 interface TodoListProps {
   todos: Todo[];
@@ -11,7 +12,7 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = React.memo(
   ({ todos, toggleTodo, deleteTodo }) => {
     return (
-      <ul>
+      <ul className='todo-list'>
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}

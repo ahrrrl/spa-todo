@@ -1,5 +1,6 @@
 import React from 'react';
 import { Todo } from '../types';
+import './TodoItem.scss';
 
 interface TodoItemProps {
   todo: Todo;
@@ -9,11 +10,20 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = React.memo(
   ({ todo, toggleTodo, deleteTodo }) => {
+    const handleToggle = () => {
+      toggleTodo(todo.id);
+    };
+    const handleDelete = () => {
+      deleteTodo(todo.id);
+    };
     return (
-      <li>
+      <li className='todo-item' onClick={handleToggle}>
         {todo.title}: {todo.context}
-        <button onClick={() => toggleTodo(todo.id)}>완료</button>
-        <button onClick={() => deleteTodo(todo.id)}>삭제</button>
+        <img
+          src='/icon/icon-delete.svg'
+          className='todo-delete-icon'
+          onClick={handleDelete}
+        />
       </li>
     );
   }
