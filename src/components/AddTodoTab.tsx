@@ -1,19 +1,22 @@
-import { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useCallback } from 'react';
 
 interface AddTodoTabProps {
   addTodo: (title: string, context: string) => void;
 }
 
-const AddTodoTab: React.FC<AddTodoTabProps> = ({ addTodo }) => {
+const AddTodoTab: React.FC<AddTodoTabProps> = React.memo(({ addTodo }) => {
   const [title, setTitle] = useState('');
   const [context, setContext] = useState('');
 
-  const handleAddTodo = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    addTodo(title, context);
-    setTitle('');
-    setContext('');
-  };
+  const handleAddTodo = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      addTodo(title, context);
+      setTitle('');
+      setContext('');
+    },
+    [title, context, addTodo]
+  );
 
   return (
     <div>
@@ -34,6 +37,6 @@ const AddTodoTab: React.FC<AddTodoTabProps> = ({ addTodo }) => {
       </form>
     </div>
   );
-};
+});
 
 export default AddTodoTab;
