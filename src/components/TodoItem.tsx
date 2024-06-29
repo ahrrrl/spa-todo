@@ -18,7 +18,7 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
     };
     return (
       <li className='todo-item' onClick={handleToggle}>
-        <div className='todo-title'>{todo.title}</div>
+        <div className='todo-title'>{todo.todoTitle}</div>
         <div className='todo-text'>{todo.context}</div>
         <img
           src='/icon/icon-delete.svg'

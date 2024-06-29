@@ -5,12 +5,12 @@ import { FormData } from './Form/types';
 import './AddTodoForm.scss';
 
 interface AddTodoFormProps {
-  addTodo: (title: string, context: string) => void;
+  addTodo: (todoTitle: string, context: string) => void;
 }
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
   const handleSubmit = (data: FormData) => {
-    addTodo(data.title, data.content);
+    addTodo(data.todoTitle, data.content);
   };
 
   return (

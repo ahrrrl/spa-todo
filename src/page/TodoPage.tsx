@@ -13,10 +13,10 @@ const TodoPage: React.FC = () => {
     }
   }, []);
 
-  const addTodo = useCallback((title: string, context: string) => {
+  const addTodo = useCallback((todoTitle: string, context: string) => {
     const newTodo: Todo = {
       id: Date.now(),
-      title,
+      todoTitle,
       context,
       isDone: false,
     };
