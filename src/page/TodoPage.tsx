@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-import AddTodoTab from '../components/AddTodoTab';
 import TodoListTab from '../components/TodoListTab';
 import { Todo } from '../types';
+import AddTodoForm from '../components/AddTodoForm';
 
 const TodoPage: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -47,7 +47,7 @@ const TodoPage: React.FC = () => {
 
   return (
     <>
-      <AddTodoTab addTodo={addTodo} />
+      <AddTodoForm addTodo={addTodo} />
       <TodoListTab
         todos={todos}
         toggleTodo={toggleTodo}
