@@ -17,7 +17,7 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
     <div className='add-todo-form'>
       <FormProvider>
         <Form onSubmit={handleSubmit}>
-          <Input name='title' label='제목' />
+          <Input name='todoTitle' label='제목' />
           <Input name='content' label='내용' />
           <button type='submit'>제출</button>
         </Form>
