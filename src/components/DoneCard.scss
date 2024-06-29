@@ -1,0 +1,83 @@
+.done-card {
+  position: relative;
+  min-width: 150px;
+  min-height: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: -10px 0 20px rgb(156, 148, 148);
+  transition: all 0.2s linear;
+}
+
+.done-card:not(:first-child) {
+  margin-left: -20px;
+  box-shadow: -10px 0 20px rgb(156, 148, 148);
+}
+
+.done-card:hover {
+  transform: translateY(-20px) scale(1.2);
+}
+
+.done-card:hover ~ .done-card {
+  transform: translateX(60px);
+}
+
+.done-card-title {
+  margin: 12px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #152e1f;
+  margin-bottom: 5px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.done-card-text {
+  font-size: 1em;
+  color: #000;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.done-card-delete-icon {
+  cursor: pointer;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.done-card:hover .done-card-delete-icon {
+  opacity: 1;
+}
+
+.done-card-delete-icon:hover {
+  transition: transform 0.2s;
+  animation: rotateAnimation 1s infinite linear;
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-50%) rotate(30deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-50%) rotate(-30deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+}

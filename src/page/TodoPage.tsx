@@ -21,7 +21,7 @@ const TodoPage: React.FC = () => {
       isDone: false,
     };
     setTodos((prevTodos) => {
-      const updatedTodos = [...prevTodos, newTodo];
+      const updatedTodos = [newTodo, ...prevTodos];
       localStorage.setItem('todos', JSON.stringify(updatedTodos));
       return updatedTodos;
     });

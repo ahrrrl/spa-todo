@@ -1,14 +1,14 @@
 import React from 'react';
 import { Todo } from '../types';
-import './TodoItem.scss';
+import './DoneCard.scss';
 
-interface TodoItemProps {
+interface DoneItemProps {
   todo: Todo;
   toggleTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = React.memo(
+const DoneCard: React.FC<DoneItemProps> = React.memo(
   ({ todo, toggleTodo, deleteTodo }) => {
     const handleToggle = () => {
       toggleTodo(todo.id);
@@ -17,12 +17,12 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
       deleteTodo(todo.id);
     };
     return (
-      <li className='todo-item' onClick={handleToggle}>
-        <div className='todo-title'>{todo.title}</div>
-        <div className='todo-text'>{todo.context}</div>
+      <li className='done-card' onClick={handleToggle}>
+        <div className='done-card-title'>{todo.title}</div>
+        <div className='done-card-text'>{todo.context}</div>
         <img
           src='/icon/icon-delete.svg'
-          className='todo-delete-icon'
+          className='done-card-delete-icon'
           onClick={handleDelete}
         />
       </li>
@@ -30,4 +30,4 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(
   }
 );
 
-export default TodoItem;
+export default DoneCard;

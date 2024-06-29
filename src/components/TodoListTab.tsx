@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './TodoList';
 import { Todo } from '../types';
 import './TodoListTab.scss';
+import DoneList from './DoneList';
 
 interface TodoListTabProps {
   todos: Todo[];
@@ -23,7 +24,7 @@ const TodoListTab: React.FC<TodoListTabProps> = React.memo(
           deleteTodo={deleteTodo}
         />
         <h2>완료된 일</h2>
-        <TodoList
+        <DoneList
           todos={doneTodos}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}

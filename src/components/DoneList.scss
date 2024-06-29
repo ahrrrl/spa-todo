@@ -1,0 +1,19 @@
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 0;
+  user-select: none; /* 드래그 중 텍스트 선택 방지 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.card-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.card-container:active {
+  cursor: grabbing; /* 드래그 중 마우스 커서 변경 */
+}

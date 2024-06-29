@@ -1,7 +1,7 @@
 .todo-item {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 10px;
   border: 1px solid #ccc;
@@ -52,14 +52,27 @@
     }
   }
 
-  .todo-text {
-    flex-grow: 1;
-    text-align: left;
-    padding: 0 10px;
+  .todo-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #152e1f;
+    margin: 12px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
-  .todo-actions {
-    display: flex;
-    gap: 10px;
+  .todo-text {
+    font-size: 1em;
+    color: #000;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
   }
 }
