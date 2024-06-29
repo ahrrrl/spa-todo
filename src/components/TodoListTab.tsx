@@ -17,13 +17,13 @@ const TodoListTab: React.FC<TodoListTabProps> = React.memo(
 
     return (
       <div className='todo-list-tab'>
-        <h2>시도할 일</h2>
+        <h2>해야 해!</h2>
         <TodoList
           todos={tryTodos}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
         />
-        <h2>완료된 일</h2>
+        <h2>했어!</h2>
         <DoneList
           todos={doneTodos}
           toggleTodo={toggleTodo}
