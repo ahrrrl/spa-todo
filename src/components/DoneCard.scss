@@ -1,7 +1,8 @@
 .done-card {
   position: relative;
-  min-width: 150px;
-  min-height: 250px;
+  padding: 12px;
+  width: 150px;
+  height: 250px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
@@ -26,7 +27,7 @@
   margin: 12px;
   font-size: 1.4em;
   font-weight: bold;
-  color: #152e1f;
+  color: #200d26;
   margin-bottom: 5px;
   text-align: center;
   overflow: hidden;
