@@ -1,14 +1,9 @@
 import './App.css';
-import StarsBackground from './components/Background';
-import TodoPage from './page/TodoPage';
+import { RouterProvider } from 'react-router-dom';
+import router from './shared/Router';
 
 function App() {
-  return (
-    <div className='todoPage-container'>
-      <StarsBackground />
-      <TodoPage />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
