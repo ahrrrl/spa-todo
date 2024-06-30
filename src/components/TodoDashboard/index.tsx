@@ -16,7 +16,7 @@ const TodoDashboard: React.FC<TodoListTabProps> = React.memo(
     const doneTodos = todos.filter((todo) => todo.isDone);
 
     return (
-      <div className='todo-list-tab'>
+      <div className='Todo-Dashboard-container'>
         <h2>해야 해!</h2>
         <TodoList
           todos={tryTodos}

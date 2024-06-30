@@ -3,10 +3,14 @@ import StarsBackground from '../../components/Background';
 
 const Layout = () => {
   return (
-    <div>
-      <StarsBackground />
-      <Outlet />
-    </div>
+    <>
+      <div className='stars-container'>
+        <StarsBackground />
+      </div>
+      <div className='content-container'>
+        <Outlet />
+      </div>
+    </>
   );
 };
 
