@@ -1,8 +1,8 @@
 import React from 'react';
-import TodoList from './TodoList';
-import { Todo } from '../types';
-import './TodoListTab.scss';
-import DoneList from './DoneList';
+import TodoList from '../TodoList';
+import { Todo } from '../../types';
+import './TodoDashboard.scss';
+import DoneList from '../DoneList';
 
 interface TodoListTabProps {
   todos: Todo[];
@@ -10,7 +10,7 @@ interface TodoListTabProps {
   deleteTodo: (id: number) => void;
 }
 
-const TodoListTab: React.FC<TodoListTabProps> = React.memo(
+const TodoDashboard: React.FC<TodoListTabProps> = React.memo(
   ({ todos, toggleTodo, deleteTodo }) => {
     const tryTodos = todos.filter((todo) => !todo.isDone);
     const doneTodos = todos.filter((todo) => todo.isDone);
@@ -34,4 +34,4 @@ const TodoListTab: React.FC<TodoListTabProps> = React.memo(
   }
 );
 
-export default TodoListTab;
+export default TodoDashboard;

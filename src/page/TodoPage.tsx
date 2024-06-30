@@ -1,5 +1,5 @@
-import TodoListTab from '../components/TodoListTab';
 import AddTodoForm from '../components/AddTodoForm';
+import TodoDashboard from '../components/TodoDashboard';
 import useTodo from '../hooks/useTodo';
 
 const TodoPage: React.FC = () => {
@@ -8,7 +8,7 @@ const TodoPage: React.FC = () => {
   return (
     <>
       <AddTodoForm addTodo={addTodo} />
-      <TodoListTab
+      <TodoDashboard
         todos={todos}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
