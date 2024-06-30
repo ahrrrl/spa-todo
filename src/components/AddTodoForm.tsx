@@ -19,7 +19,7 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
         <Form onSubmit={handleSubmit}>
           <Input name='todoTitle' label='제목' />
           <Input name='content' label='내용' />
-          <button type='submit'>제출</button>
+          <button type='submit'>추가</button>
         </Form>
       </FormProvider>
     </div>
