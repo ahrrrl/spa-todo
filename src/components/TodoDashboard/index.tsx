@@ -17,13 +17,13 @@ const TodoDashboard: React.FC<TodoListTabProps> = React.memo(
 
     return (
       <div className='todo-dashboard-container'>
-        <h2>해야 해!</h2>
+        {tryTodos.length ? <h2>해야 해!</h2> : null}
         <TodoList
           todos={tryTodos}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
         />
-        <h2>했어!</h2>
+        {doneTodos.length ? <h2>했어!</h2> : null}
         <DoneList
           todos={doneTodos}
           toggleTodo={toggleTodo}
