@@ -1,13 +1,21 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import { FormContext } from './FormContext';
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;
-  type?: string;
+  formatValue?: (value: string) => string;
+  parseValue?: (value: string) => string;
 }
 
-export const Input: React.FC<InputProps> = ({ name, label, type = 'text' }) => {
+export const Input: React.FC<InputProps> = ({
+  name,
+  label,
+  type = 'text',
+  formatValue = (v) => v,
+  parseValue = (v) => v,
+  ...props
+}) => {
   const context = useContext(FormContext);
   if (!context) throw new Error('Input must be used within a FormProvider');
   const { formData, setFormData, errors, registerInput } = context;
@@ -30,7 +38,9 @@ export const Input: React.FC<InputProps> = ({ name, label, type = 'text' }) => {
   }, [name, setFormData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({ ...prev, [name]: e.target.value }));
+    const rawValue = e.target.value;
+    const parsedValue = parseValue(rawValue);
+    setFormData((prev) => ({ ...prev, [name]: parsedValue }));
   };
 
   return (
@@ -41,8 +51,9 @@ export const Input: React.FC<InputProps> = ({ name, label, type = 'text' }) => {
         type={type}
         id={name}
         name={name}
-        value={formData[name] || ''}
+        value={formatValue(formData[name] || '')}
         onChange={handleChange}
+        {...props}
       />
       {errors[name] && <span className='error-message'>{errors[name]}</span>}
     </div>
