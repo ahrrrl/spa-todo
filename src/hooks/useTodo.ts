@@ -1,49 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Todo } from '../types';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo, deleteTodo, toggleTodo } from '../redux/modules/todoSlice';
+import { RootState } from '../redux/config/configStore';
 
 const useTodo = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const dispatch = useDispatch();
+  const todos = useSelector((state: RootState) => state.todo.todos);
 
-  useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
+  const addNewTodo = useCallback(
+    (todoTitle: string, context: string) => {
+      dispatch(addTodo({ todoTitle, context }));
+    },
+    [dispatch]
+  );
 
-  const addTodo = useCallback((todoTitle: string, context: string) => {
-    const newTodo: Todo = {
-      id: Date.now(),
-      todoTitle,
-      context,
-      isDone: false,
-    };
-    setTodos((prevTodos) => {
-      const updatedTodos = [newTodo, ...prevTodos];
-      localStorage.setItem('todos', JSON.stringify(updatedTodos));
-      return updatedTodos;
-    });
-  }, []);
+  const toggleTodoStatus = useCallback(
+    (id: number) => {
+      dispatch(toggleTodo(id));
+    },
+    [dispatch]
+  );
 
-  const toggleTodo = useCallback((id: number) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      );
-      localStorage.setItem('todos', JSON.stringify(updatedTodos));
-      return updatedTodos;
-    });
-  }, []);
+  const removeTodo = useCallback(
+    (id: number) => {
+      dispatch(deleteTodo(id));
+    },
+    [dispatch]
+  );
 
-  const deleteTodo = useCallback((id: number) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = prevTodos.filter((todo) => todo.id !== id);
-      localStorage.setItem('todos', JSON.stringify(updatedTodos));
-      return updatedTodos;
-    });
-  }, []);
-
-  return { todos, addTodo, toggleTodo, deleteTodo };
+  return {
+    todos,
+    addTodo: addNewTodo,
+    toggleTodo: toggleTodoStatus,
+    deleteTodo: removeTodo,
+  };
 };
 
 export default useTodo;

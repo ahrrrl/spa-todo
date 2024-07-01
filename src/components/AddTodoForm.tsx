@@ -3,12 +3,12 @@ import { FormProvider } from './Form/FormContext';
 import { Input } from './Form/Input';
 import { FormData } from './Form/types';
 import './AddTodoForm.scss';
+import useTodo from '../hooks/useTodo';
 
-interface AddTodoFormProps {
-  addTodo: (todoTitle: string, context: string) => void;
-}
+interface AddTodoFormProps {}
 
-const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
+const AddTodoForm: React.FC<AddTodoFormProps> = () => {
+  const { addTodo } = useTodo();
   const handleSubmit = (data: FormData) => {
     addTodo(data.todoTitle, data.content);
   };

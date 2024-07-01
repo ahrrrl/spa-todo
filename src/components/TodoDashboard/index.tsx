@@ -1,37 +1,24 @@
 import React from 'react';
 import TodoList from '../TodoList';
-import { Todo } from '../../types';
 import './TodoDashboard.scss';
 import DoneList from '../DoneList';
+import useTodo from '../../hooks/useTodo';
 
-interface TodoListTabProps {
-  todos: Todo[];
-  toggleTodo: (id: number) => void;
-  deleteTodo: (id: number) => void;
-}
+interface TodoListTabProps {}
 
-const TodoDashboard: React.FC<TodoListTabProps> = React.memo(
-  ({ todos, toggleTodo, deleteTodo }) => {
-    const tryTodos = todos.filter((todo) => !todo.isDone);
-    const doneTodos = todos.filter((todo) => todo.isDone);
+const TodoDashboard: React.FC<TodoListTabProps> = React.memo(() => {
+  const { todos } = useTodo();
+  const tryTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
 
-    return (
-      <div className='todo-dashboard-container'>
-        {tryTodos.length ? <h2>해야 해!</h2> : null}
-        <TodoList
-          todos={tryTodos}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-        {doneTodos.length ? <h2>했어!</h2> : null}
-        <DoneList
-          todos={doneTodos}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-      </div>
-    );
-  }
-);
+  return (
+    <div className='todo-dashboard-container'>
+      {tryTodos.length ? <h2>해야 해!</h2> : null}
+      <TodoList todos={tryTodos} />
+      {doneTodos.length ? <h2>했어!</h2> : null}
+      <DoneList todos={doneTodos} />
+    </div>
+  );
+});
 
 export default TodoDashboard;
