@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import StarsBackground from '../../components/Background';
+import './Layout.scss';
 
 const Layout = () => {
   return (

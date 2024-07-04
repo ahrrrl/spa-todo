@@ -11,14 +11,13 @@ import { validateForm } from './utils/validateForm';
 
 const useForm = <T extends FormData>(
   initialData: T,
-  formatters?: { [K in keyof T]: FormatterFn<T[K]> },
+  formatters: { [K in keyof T]: FormatterFn<T[K]> },
   validators?: { [K in keyof T]: ValidatorFn<T[K]> }
 ) => {
   const [formData, setFormData] = useState<T>(initialData);
   const [errors, setErrors] = useState<FormErrors<T>>({});
 
   const handleInputChange: InputChangeHandler = (event) => {
-    if (!formatters) return;
     const { name, value, files } = event.target;
     const key = name as keyof T;
     let formattedValue: T[keyof T];

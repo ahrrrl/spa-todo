@@ -1,10 +1,9 @@
-import { useParams } from 'react-router-dom';
+import DetailTodo from '../components/DetailTodo';
 
 const TodoDetailPage = () => {
-  const { id } = useParams();
   return (
     <>
-      <div>{id}</div>
+      <DetailTodo />
     </>
   );
 };
