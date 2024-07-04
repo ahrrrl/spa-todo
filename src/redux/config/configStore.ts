@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import todoReducer from '../modules/todoSlice';
 
 const rootReducer = combineReducers({
-  todo: todoReducer,
+  todoReducer,
 });
 
 const persistConfig = {

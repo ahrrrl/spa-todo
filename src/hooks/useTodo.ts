@@ -5,7 +5,7 @@ import { RootState } from '../redux/config/configStore';
 
 const useTodo = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state: RootState) => state.todo.todos);
+  const todos = useSelector((state: RootState) => state.todoReducer.todos);
 
   const addNewTodo = useCallback(
     (todoTitle: string, context: string) => {
