@@ -1,4 +1,4 @@
-.card-container {
+.done-list {
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
@@ -10,10 +10,10 @@
   -ms-overflow-style: none;
 }
 
-.card-container::-webkit-scrollbar {
+.done-list::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-.card-container:active {
+.done-list:active {
   cursor: grabbing; /* 드래그 중 마우스 커서 변경 */
 }

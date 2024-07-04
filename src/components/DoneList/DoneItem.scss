@@ -1,0 +1,106 @@
+.done-list {
+  .todo-item {
+    cursor: pointer;
+    position: relative;
+    padding: 12px;
+    width: 150px;
+    height: 160px;
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: -4px 0 10px rgb(156, 148, 148);
+    transition: all 0.2s linear;
+  }
+
+  .todo-item:not(:first-child) {
+    margin-left: -20px;
+    box-shadow: -4px 0 10px rgb(156, 148, 148);
+  }
+
+  .todo-item:hover {
+    transform: translateY(-20px) scale(1.2);
+    box-shadow: -4px 0 10px rgb(117, 110, 110);
+  }
+
+  .todo-item:hover ~ .todo-item {
+    transform: translateX(60px);
+  }
+
+  .todo-title {
+    margin: 12px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #200d26;
+    margin-bottom: 5px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .todo-text {
+    font-size: 1em;
+    color: #000;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .todo-delete-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+
+    opacity: 0;
+  }
+
+  .todo-item:hover .todo-delete-icon {
+    opacity: 1;
+  }
+
+  .todo-delete-icon:hover {
+    transition: transform 0.2s;
+    animation: rotateAnimation 1s infinite linear;
+  }
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(30deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  .todo-completed-icon {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    opacity: 0;
+  }
+
+  &:hover .todo-completed-icon {
+    opacity: 1;
+  }
+
+  .todo-completed-icon:hover {
+    background-color: #f9f9f9;
+  }
+}

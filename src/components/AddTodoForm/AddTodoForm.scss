@@ -1,11 +1,10 @@
 .add-todo-form {
   width: 100%;
-  height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
-  padding-bottom: 40px;
+  padding-bottom: 28px;
   form {
     display: flex;
     flex-direction: row; /* 변경된 부분: flex 방향을 row로 설정 */

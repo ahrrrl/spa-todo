@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Todo } from '../types';
+import { Todo } from '../../types';
 import './DoneList.scss';
-import DoneCard from './DoneCard';
+import './DoneItem.scss';
+import TodoItem from '../TodoItem';
 
 interface DoneListProps {
   todos: Todo[];
@@ -48,14 +49,14 @@ const DoneList: React.FC<DoneListProps> = React.memo(({ todos }) => {
 
   return (
     <ul
-      className='card-container'
+      className='done-list'
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
       {todos.map((todo) => (
-        <DoneCard key={todo.id} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );

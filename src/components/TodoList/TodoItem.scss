@@ -1,0 +1,98 @@
+.todo-list {
+  .todo-item {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    background-color: #f9f9f9;
+    height: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: #e0e0e0;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .todo-delete-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+
+    &:hover .todo-delete-icon {
+      opacity: 1;
+    }
+
+    .todo-delete-icon:hover {
+      transition: transform 0.2s;
+      animation: rotateAnimation 1s infinite linear;
+    }
+    @keyframes rotateAnimation {
+      0% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-50%) rotate(30deg);
+      }
+      50% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-50%) rotate(-30deg);
+      }
+      100% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+    }
+
+    .todo-completed-icon {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      opacity: 0;
+    }
+
+    &:hover .todo-completed-icon {
+      opacity: 1;
+    }
+
+    .todo-completed-icon:hover {
+      background-color: #f9f9f9;
+    }
+
+    .todo-title {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #152e1f;
+      margin: 12px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .todo-text {
+      font-size: 1em;
+      color: #000;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
